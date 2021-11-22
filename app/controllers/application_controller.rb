@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
+  # Every action will ask for an user login
   before_action :authenticate_user!
+
+  # This will authorize new fields on devise forms, calling the method defined below
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def configure_permitted_parameters
